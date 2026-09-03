@@ -156,3 +156,102 @@
     color: var(--color-foreground);
   }
 }
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+@utility surface {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+}
+
+@utility lift {
+  transition:
+    transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 220ms cubic-bezier(0.22, 1, 0.36, 1);
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lift);
+  }
+}
+
+@utility city-grid {
+  background-image:
+    linear-gradient(to right, oklch(0.52 0.13 218 / 0.09) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(0.52 0.13 218 / 0.09) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+@utility hero-gradient {
+  background:
+    radial-gradient(900px 420px at 12% -10%, oklch(0.52 0.13 218 / 0.16), transparent 70%),
+    radial-gradient(700px 380px at 92% 0%, oklch(0.62 0.14 155 / 0.14), transparent 70%),
+    linear-gradient(180deg, oklch(0.985 0.006 230), oklch(1 0 0));
+}
+
+@utility text-gradient {
+  background: linear-gradient(94deg, oklch(0.52 0.13 218), oklch(0.55 0.14 175));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Leaflet map surface */
+.leaflet-container {
+  font-family: var(--font-sans);
+  background: oklch(0.95 0.01 228);
+  border-radius: var(--radius-lg);
+  z-index: 0;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lift);
+}
+
+.parkai-marker {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  border: 3px solid white;
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  box-shadow: 0 4px 12px oklch(0.25 0.06 240 / 0.35);
+}
+
+.parkai-marker[data-tone="available"] {
+  background: oklch(0.62 0.14 155);
+}
+.parkai-marker[data-tone="limited"] {
+  background: oklch(0.79 0.15 78);
+  color: oklch(0.3 0.06 60);
+}
+.parkai-marker[data-tone="full"] {
+  background: oklch(0.58 0.21 25);
+}
+.parkai-marker[data-tone="recommended"] {
+  background: oklch(0.52 0.16 262);
+}
