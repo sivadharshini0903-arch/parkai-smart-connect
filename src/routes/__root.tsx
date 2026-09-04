@@ -11,6 +11,10 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { SiteFooter } from "@/components/layout/SiteFooter";
+import { SiteHeader } from "@/components/layout/SiteHeader";
+import { Toaster } from "@/components/ui/sonner";
+import { ParkingStoreProvider } from "@/store/parking-store";
 
 function NotFoundComponent() {
   return (
